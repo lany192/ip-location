@@ -24,7 +24,7 @@ public class IpHelper {
         if (searcher == null) {
             try {
                 //db
-                String dbPath = IpHelper.class.getResource("ip2region.xdb").getPath();
+                String dbPath = IpHelper.class.getClassLoader().getResource("ip2region.xdb").getPath();
                 // 1、从 dbPath 中预先加载 VectorIndex 缓存，并且把这个得到的数据作为全局变量，后续反复使用。
                 byte[] vIndex = Searcher.loadVectorIndexFromFile(dbPath);
                 // 2、使用全局的 vIndex 创建带 VectorIndex 缓存的查询对象。
